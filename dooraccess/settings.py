@@ -122,7 +122,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
-    'testings',
     'accessdoor'
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
@@ -159,8 +158,9 @@ LOGGING = {
     }
 }
 
-# AUTHENTICATION_BACKENDS = (
-#     'auth_backends.CustomUserModelBackend',
-# )
+AUTHENTICATION_BACKENDS = (
+    'auth_backends.CustomUserModelBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
 
-AUTH_USER_MODEL = 'accessdoor.CustomUser'
+CUSTOM_USER_MODEL = 'accessdoor.CustomUser'

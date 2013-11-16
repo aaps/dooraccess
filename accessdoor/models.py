@@ -5,6 +5,11 @@ class CustomUser(User):
     key = models.CharField(max_length=32)
     objects = UserManager()
 
+    def save(self, *args, **kwargs):
+      self.set_password(self.password)
+      super(CustomUser, self).save(*args, **kwargs)
+
+
 class Event(models.Model):
      name = models.CharField(max_length=32)
      description = models.CharField(max_length=200)

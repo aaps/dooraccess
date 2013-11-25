@@ -159,8 +159,10 @@ LOGGING = {
 }
 
 AUTHENTICATION_BACKENDS = (
-    'auth_backends.CustomUserModelBackend',
+    # 'auth_backends.CustomUserModelBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
 
-CUSTOM_USER_MODEL = 'accessdoor.CustomUser'
+# CUSTOM_USER_MODEL = 'accessdoor.CustomUser'
+
+AUTH_USER_MODEL = 'accessdoor.CustomUser'

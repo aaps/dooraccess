@@ -1,4 +1,5 @@
-# Django settings for dooraccess project.
+import os
+# Django settings for testuser project.
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -7,12 +8,16 @@ ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
 
+PROJECT_DIR = os.path.dirname(os.path.realpath(__file__))
+
+ROOT_DIR = PROJECT_DIR.rsplit(os.sep)[0]
+
 MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'deurtoegang1.sql2',                      # Or path to database file if using sqlite3.
+        'NAME': 'testuserdb',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': '',
         'PASSWORD': '',
@@ -52,6 +57,8 @@ USE_TZ = True
 # Example: "/var/www/example.com/media/"
 MEDIA_ROOT = ''
 
+MEDIA_ROOT = os.path.join(ROOT_DIR, 'profiles')
+
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://example.com/media/", "http://media.example.com/"
@@ -83,7 +90,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '0yhlh+c8i_0*yk-7vli+!0))fnxwn@3l(oy$sf9v8j0tgr)ojd'
+SECRET_KEY = 'jsigy!+g!^329bkbr5!yh0w%6@0w%y*0f=!zqw010^t*9daig@'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -102,15 +109,13 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'dooraccess.urls'
+ROOT_URLCONF = 'testuser.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'dooraccess.wsgi.application'
+WSGI_APPLICATION = 'testuser.wsgi.application'
 
 TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
+   '/home/aat/mydevenv/testuser/templates'
 )
 
 INSTALLED_APPS = (
@@ -122,9 +127,9 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
-    'accessdoor'
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    'modiusers',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
@@ -159,10 +164,9 @@ LOGGING = {
 }
 
 AUTHENTICATION_BACKENDS = (
-    # 'auth_backends.CustomUserModelBackend',
     'django.contrib.auth.backends.ModelBackend',
+    'testuser.auth_backends.CustomUserModelBackend',
+    
 )
 
-# CUSTOM_USER_MODEL = 'accessdoor.CustomUser'
-
-AUTH_USER_MODEL = 'accessdoor.CustomUser'
+CUSTOM_USER_MODEL = 'modiusers.CustomUser'

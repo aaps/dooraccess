@@ -1,0 +1,14 @@
+{% extends "admin_copies/change_form.html" %}
+{% block coltype %}colMS{% endblock %}
+{% block sidebar %}
+<div id="content-related">
+    <div id="navcontainer">
+        <ul id="navlist">
+            
+            {% ifequal form.data.is_shareholder 1 %}
+            <li><a href="/admin/manager/shareholders/{{ form.data.id }}/">Show shareholder data for {{ form.data.id }}</a></li>
+            {% endifequal %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

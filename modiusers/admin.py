@@ -1,9 +1,15 @@
 from django.contrib import admin
 from models import CustomUser
+from models import LogEntry
 from forms import CustomUserCreationForm
 from forms import CustomUserChangeForm
+from forms import LogEntryChangeForm
+from forms import LogEntryCreationForm
 from django.contrib.auth.admin import UserAdmin
 from django.utils.translation import ugettext, ugettext_lazy as _
+
+
+
 
 
 class CustomUserAdmin(UserAdmin):
@@ -23,16 +29,20 @@ class CustomUserAdmin(UserAdmin):
 
 
 
-    # def get_fieldsets(self, request, obj=None):
-    #     if not obj:
-    #         return self.add_fieldsets
+class LogEntryAdmin(admin.ModelAdmin):
+    
+    def has_add_permission(self, request):
+        return False
 
-    #     return [(None, {'fields': ('username', 'password')}),
-    #             # (_('Personal info'), {'fields': ('first_name', 'last_name', 'email')}),
-    #             # (_('Permissions'), {'fields': perm_fields}),
-    #             (_('Extra'), {'fields': ('doorkey','image')})
-    #             # (_('Important dates'), {'fields': ('last_login', 'date_joined')})
-    #             ]
+    form = LogEntryChangeForm
+    add_form = LogEntryCreationForm
+
+    readonly_fields = ['name','time','doorkey','validentry']
+
+    list_display = ('name', 'time')
+
+
 
 
 admin.site.register(CustomUser, CustomUserAdmin)
+admin.site.register(LogEntry, LogEntryAdmin)

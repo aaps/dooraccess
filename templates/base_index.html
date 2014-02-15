@@ -1,0 +1,94 @@
+{% load staticfiles %}
+<html class="js video audio svg inlinesvg svgclippaths desktop standard" lang="nl" style="visibility: visible;">
+	<!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>
+			HUB
+		</title>
+		<meta name="description" content="Welkom bij de HUB!">
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+		<link rel="icon" href="favicon.ico" type="image/x-icon">
+
+		<link href="{% static "testuser/base.css"%}" type="text/css" rel="stylesheet">
+		<script src="js/modernizr.js" type="text/javascript">
+</script>
+	</head>
+	<body class="home" style="zoom: 1;">
+		<div class="layout-center">
+			<div id="wallpaper" style="margin-top: 0px;"></div>
+			<div id="page">
+				<header id="header">
+					<a id="logo" href="http://hubtwente.nl/" style="background-position: 50% -393px;"></a>
+					<div class="utilities">
+						<nav class="quick">
+							<ul>
+								<li>
+									<a href="../admin">Inloggen</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+					<nav class="primary">
+						<div class="switch">
+							menu
+						</div>
+					</nav>
+				</header>
+				<div id="content">
+					<div class="grid" style="height: 881px;">
+						<div class="cell" style="top: 0px;">
+							<div class="cell-spacing">
+								<img class="decoration-border top" src="{% static "testuser/border-top.png"%}" alt="">
+								<article class="content">
+		
+
+		<!-- vanaf hier mag alles dynamisch worden gevuld		    -->
+{% block content %}
+<figure>
+	<div class="media">
+		<img src="http://hubtwente.nl/media/userblock/media/afbeeldingen/gebruikersblokken/quinta.jpg" style="width: 200px;">
+	</div>
+	<figcaption>
+		<p>
+			Als Cultuurmakelaar wil ik de ‘spin in het web’ zijn van het hele culturele<br>veld van Oldenzaal. Ik bied ondersteuning voor het culturele veld van<br>Oldenzaal, kan helpen bij vragen over ondersteuning, repetitieruimtes,<br>ideeën voor het opzetten van (nieuwe/vernieuwende) activiteiten etc. 
+		</p>
+		<p>
+			Mijn website:<br><a href="http://www.cultuurmakelaar-oldenzaal.nl/" class="external" target="_blank">www.cultuurmakelaar-oldenzaal.nl/</a>
+		</p>
+		<p>
+			Contactgegevens:<br>Tel: 06-3875 4846<br>E-mail: <a href="http://quinta@cultuurmakelaar-oldenzaal.nl" class="external" target="_blank">quinta@cultuurmakelaar-oldenzaal.nl</a>
+		</p>
+		<p style="color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 16.363636016845703px; line-height: normal;" type="cite">
+			 
+		</p>
+	</figcaption>
+</figure>
+
+
+					
+					
+<footer>
+	<div class="icon asterisk"></div>
+	<div class="sterkr-name">
+		Quinta Clason
+	</div>
+	<div class="sterkr-function-company">
+		Stichting Cultuur in Enschede
+	</div><!-- AddThis Button BEGIN -->
+	<a class="addthis_button_compact" addthis:url="http://hubtwente.nl/index"></a> <!-- AddThis Button END --> 
+</footer> 
+{% endblock %}                 
+			   
+</article><img class="decoration-border bottom" src="{% static "testuser/border-bottom.png"%}" alt="">
+							</div>
+						</div>
+						
+					</div>
+				</div><!-- #content -->
+			</div><!-- #page -->
+		</div>
+	</body>
+</html>

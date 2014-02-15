@@ -79,6 +79,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    os.path.join(os.path.dirname(__file__),'static').replace('\\','/'),
 )
 
 # List of finder classes that know how to find static files in
@@ -170,3 +171,5 @@ AUTHENTICATION_BACKENDS = (
 )
 
 CUSTOM_USER_MODEL = 'modiusers.CustomUser'
+
+INTERNAL_IPS = '127.0.0.1'

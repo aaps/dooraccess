@@ -10,5 +10,13 @@ class SignUpForm(UserCreationForm):
     
     class Meta:
         model = CustomUser
-        fields = ('doorkey') 
+        fields = ('doorkey')
+
+    def clean(self):
+        cleaned_data =  self.cleaned_data
+        raise forms.ValidationError("You have failed validation!")
+        # return cleaned_data
+
+
+
 
